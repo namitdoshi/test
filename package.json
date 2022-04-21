@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namitdoshi/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namitdoshi/test/issues"
+  },
+  "homepage": "https://github.com/namitdoshi/test#readme",
+  "dependencies": {
+    "awesome-unoconv": "^1.0.1",
+    "express": "^4.17.3"
+  }
+}
