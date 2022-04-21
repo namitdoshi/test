@@ -1,7 +1,7 @@
 const path = require('path');
 const unoconv = require('awesome-unoconv');
 //Place your word file in source
-const sourceFilePath = path.resolve('./a.docx');
+const sourceFilePath = path.resolve('./FAQPTR.doc');
 const outputFilePath = path.resolve('./myDoc.pdf');
  
 unoconv
