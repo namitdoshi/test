@@ -54,6 +54,7 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
     const sourceFilePath = path.join(__dirname, `./files/${file.filename}`);
     const outputFilePath = path.join(__dirname, `./files/${file.filename.split('.').shift()}.pdf`);
     
+    console.log('file: ' +file.filename);
     await unoconv
       .convert(sourceFilePath, outputFilePath)
       .then(result => {
