@@ -23,7 +23,7 @@ const storage = diskStorage({
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
-    // console.log(file.mimetype);
+    console.log(file.mimetype);
     var ext = path.extname(file.originalname);
     if (ext !== '.doc' && ext !== '.docx') {
       return cb(new Error('Files with extension doc or docx ar allowed'))
@@ -34,17 +34,17 @@ const upload = multer({
 
 
 //Place your word file in source
-const sourceFilePath = path.resolve('./FAQPTR.doc');
-const outputFilePath = path.resolve('./myDoc.pdf');
+// const sourceFilePath = path.resolve('./FAQPTR.doc');
+// const outputFilePath = path.resolve('./myDoc.pdf');
  
-unoconv
-  .convert(sourceFilePath, outputFilePath)
-  .then(result => {
-    console.log(result); // return outputFilePath
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// unoconv
+//   .convert(sourceFilePath, outputFilePath)
+//   .then(result => {
+//     console.log(result); // return outputFilePath
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 
 
 app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
@@ -59,7 +59,8 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
       .convert(sourceFilePath, outputFilePath)
       .then(result => {
         console.log(result); // return outputFilePath
-        return res.download(`./files/${a.fileName}`)
+        res.download(`./files/${file.filename.split('.').shift()}.pdf`);
+        return res.status(200).json({code: 200, err: false, msg: `${file.filename.split('.').shift()}.pdf downloaded successfully`});
       })
       .catch(err => {
         console.log(err);
@@ -69,4 +70,4 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
   }
 })
 
-  app.listen(8080, () => console.log('Listening on 3000...'));
+  app.listen(8080, () => console.log('Listening on 8080...'));
