@@ -18,6 +18,8 @@
   "homepage": "https://github.com/namitdoshi/test#readme",
   "dependencies": {
     "awesome-unoconv": "^1.0.1",
-    "express": "^4.17.3"
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "multer": "^1.4.4"
   }
 }
