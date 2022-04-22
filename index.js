@@ -61,7 +61,6 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
         console.log(result); // return outputFilePath
         // res.download(`./files/${file.filename.split('.').shift()}.pdf`);
         console.log(`pdf name: ${file.filename.split('.').shift()}.pdf` );
-        await downloadPDF(res, `./files/${file.filename.split('.').shift()}.pdf`)
         return res.downloadPDF.status(200).download(`./files/${file.filename.split('.').shift()}.pdf`).json({code: 200, err: false, msg: `${file.filename.split('.').shift()}.pdf downloaded successfully`});
       })
       .catch(err => {
