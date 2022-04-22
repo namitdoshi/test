@@ -74,7 +74,7 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
 })
 
 async function downloadPDF(res, filePath) {
-  res.download(filePath);
+  return res.download(filePath);
 }
 
 
