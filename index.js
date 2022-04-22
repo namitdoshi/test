@@ -59,8 +59,9 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
       .convert(sourceFilePath, outputFilePath)
       .then(result => {
         console.log(result); // return outputFilePath
-        res.download(`./files/${file.filename.split('.').shift()}.pdf`);
-        return res.status(200).json({code: 200, err: false, msg: `${file.filename.split('.').shift()}.pdf downloaded successfully`});
+        // res.download(`./files/${file.filename.split('.').shift()}.pdf`);
+        console.log(`pdf name: ${file.filename.split('.').shift()}.pdf` );
+        return res.download(`./files/${file.filename.split('.').shift()}.pdf`).status(200).json({code: 200, err: false, msg: `${file.filename.split('.').shift()}.pdf downloaded successfully`});
       })
       .catch(err => {
         console.log(err);
