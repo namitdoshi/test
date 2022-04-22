@@ -66,8 +66,6 @@ app.post('/doc-2-pdf', upload.single('file'), async(req, res) => {
       .catch(err => {
         console.log(err);
   });
-
-  return res.status(200).json({code: 200, err: false, msg: `${file.filename.split('.').shift()}.pdf downloaded successfully`});
   } catch (error) {
     return res.status(400).json({code: 400, err: false, msg: 'failed'});
   }
